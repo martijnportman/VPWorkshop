@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bks="http://www.dummy.org/booksXml" targetNamespace="http://www.dummy.org/booksXml" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="Books" type="bks:booksType"/>
+	<!-- Complex Types -->
+	<xsd:complexType name="booksType">
+		<xsd:sequence>
+			<xsd:element name="Book" type="bks:bookType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="bookType">
+		<xsd:sequence>
+			<xsd:element name="ISBN" type="bks:ISBN13SType"/>
+			<xsd:element name="Writer" type="bks:writerType"/>
+			<xsd:element name="Title" type="xsd:string"/>
+			<xsd:element name="Genre" type="xsd:string"/>
+			<xsd:element name="Price" type="bks:priceType"/>
+			<xsd:element name="Publisher" type="bks:publisherType" maxOccurs="unbounded"/>
+			<xsd:element name="PublishingDate" type="xsd:date"/>
+			<xsd:element name="Review" type="xsd:string"/>
+		</xsd:sequence>
+		<xsd:attribute name="bookId" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="addressType">
+		<xsd:sequence>
+			<xsd:element name="POBoxNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BuildingHouseNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StreetName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CityName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StateProvince" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PostalCode" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="priceType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:decimal">
+				<xsd:attribute name="currency" type="bks:currencySType"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="publisherType">
+		<xsd:sequence>
+			<xsd:element name="PublisherName" type="bks:alphaNumLength1to40SType"/>
+			<xsd:element name="Address" type="bks:addressType"/>
+			<xsd:element name="Regions" type="bks:regionsType" maxOccurs="5"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="regionsType">
+		<xsd:sequence>
+			<xsd:element name="Region" type="bks:regionSType" maxOccurs="5"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="writerType">
+		<xsd:sequence>
+			<xsd:element name="Author" type="xsd:string"/>
+			<xsd:element name="Address" type="bks:addressType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- Simple Types -->
+	<xsd:simpleType name="alphaNumLength1to40SType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[a-zA-Z0-9]{1,40}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="currencySType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="pounds"/>
+			<xsd:enumeration value="euros"/>
+			<xsd:enumeration value="dollars"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="isbnSType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\d{1}-\d{5}-\d{3}-\d{1}|\d{1}-\d{3}-\d{5}-\d{1}|\d{1}-\d{2}-\d{6}-\d{1}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ISBN13SType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="17"/>
+			<xsd:pattern value="(978|979)-[0-9]{1,5}-[0-9]{1,7}-[0-9]{1,7}-[0-9]"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="regionSType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Africa"/>
+			<xsd:enumeration value="America"/>
+			<xsd:enumeration value="Antarctica"/>
+			<xsd:enumeration value="Asia"/>
+			<xsd:enumeration value="Europe"/>
+			<xsd:enumeration value="Oceania"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

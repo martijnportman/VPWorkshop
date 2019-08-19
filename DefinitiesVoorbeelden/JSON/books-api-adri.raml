@@ -1,0 +1,73 @@
+#%RAML 1.0
+title: Books API Adri
+
+types:
+  addressType: !include datatypes/addressType.raml
+  publisherType: 
+    type: object
+    properties:
+      publisher: !include datatypes/publisherType.raml
+      address: addressType
+      regions: regionType[]
+  regionType: !include datatypes/regionType.raml
+  writerType: 
+    type: object
+    properties:
+      writer: !include datatypes/writerType.raml
+      address: addressType
+  bookType:
+    type: object
+    properties:
+      book: !include datatypes/bookType.raml
+      writers: writerType []
+      publishers: publisherType[]
+  books: bookType[]
+  book: bookType
+
+/books:
+  get:
+    queryParameters: 
+      isbn:
+        required: false
+      title:
+        required: false
+    responses: 
+      200:
+        body: 
+          application/json:
+            type: books
+            example: !include examples/getBooksResponse.raml
+
+  post:
+    body: 
+      application/json:
+        type: book
+        example: !include examples/postSingleBookRequest.raml
+    responses: 
+      201:
+        body: 
+          application/json: 
+            example:
+              message: "Book added (but not really)"
+
+  put:
+    body: 
+      application/json:
+        type: book
+        example: !include examples/postSingleBookRequest.raml
+    responses: 
+      201:
+        body: 
+          application/json: 
+            example:
+              message: "Book updated (but not really)"
+
+  /{isbn}:
+    get:
+      responses: 
+        200:
+          body: 
+            application/json:
+              type: book
+              example: !include examples/getSingleBookResponse.raml
+

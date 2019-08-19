@@ -1,0 +1,32 @@
+#%RAML 1.0 DataType
+
+  type: object
+  required: true
+  properties:
+    isbn:
+      type: string
+      required: true
+      pattern: (978|979)-[0-9]{1,5}-[0-9]{1,7}-[0-9]{1,7}-[0-9]
+    title:
+      type: string
+      required: true
+    genre:
+      type: string
+      required: true
+    currency:
+      type: string
+      required: true
+      enum: 
+        - dollar
+        - euro
+        - pound
+    price:
+      type: number
+      multipleOf: 0.01
+      required: true
+    review:
+      type: string
+      required: true
+    publishingDate:
+      type: date-only
+      required: false
