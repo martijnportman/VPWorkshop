@@ -27,10 +27,10 @@ On Cloudhub, environment VopakTraining:
 Pre req:
 Clone GIT repo for WorkShop
 
-•	Create the applications in such a manner that a can be published to different environments.
-•	Register the apis so that policies can be applied in the future.
-•	Use encryption and secured property configuration files.
-•	Use global and environment specific config files.
+-	Create the applications in such a manner that a can be published to different environments.
+-	Register the apis so that policies can be applied in the future.
+-	Use encryption and secured property configuration files.
+-	Use global and environment specific config files.
 
 The applications need to be developed in a way that they can be released in production. (Naming conventions, organizing code, correct functionality).
 
@@ -69,13 +69,13 @@ Steps:
 1 – Create service to read the books queue.
 
 2 – For each books:
-•	Check if the book exists using the books-ws service. 
-•	If not, add the book using the books-ws service.
-•	If any error occurs, use the error queue.
+-	Check if the book exists using the books-ws service. 
+-	If not, add the book using the books-ws service.
+-	If any error occurs, use the error queue.
 
 Note: 
-•	Decide how to check the existence of the book and why.
-•	Use circuit breaker to stop the processing in case of a transient Error
+-	Decide how to check the existence of the book and why.
+-	Use circuit breaker to stop the processing in case of a transient Error
 
 3 – Check functionality
 Is the error handling correctly implemented.
@@ -86,8 +86,8 @@ Write a positive and a negative test.
 Use case: 3: Advanced functionality
 
 2 – Add complex error handling.
-•	For instance, should you scope the error handling to a flow or not
-•	Or do you think you need error handling on several level? Why?
+-	For instance, should you scope the error handling to a flow or not
+-	Or do you think you need error handling on several level? Why?
 
 3- Add in track trace of messages. How will you approach this?
 
@@ -95,8 +95,8 @@ Use case: 3: Advanced functionality
 Use case 4: Releasing APIs
 
 Before API’s are released the 4-eye principle is being used.
-•	In order for the API’s to be released check each others solution?
-•	What could be improved and what is written in a positive manner?
+-	In order for the API’s to be released check each others solution?
+-	What could be improved and what is written in a positive manner?
 
 Demonstrate your API’s and explain the design decisions you made.
 
