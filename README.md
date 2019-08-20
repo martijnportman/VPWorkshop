@@ -50,7 +50,7 @@ The directory location is free to choose.
 Each input file must be validated to the Books_v1.0.0.xsd.
 
 Processing the file consists of these steps:
-1.	Write the contents of the file as is (XML format) to the books queue which stores the contents of a file.
+1.	Write the contents of the file as is (XML format) to the content queue which stores the contents of a file.
 2.	For each publisher in the input file call the webservice publishers-ws to check if the publisher exists.
 3.	If the publishers does not exist, add the publisher using the same webservice.
 4.	The books will need to be converted in the respected CDM datamodels of the publishers-ws API.
