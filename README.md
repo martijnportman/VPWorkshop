@@ -53,7 +53,7 @@ Processing the file consists of these steps:
 1.	Write the contents of the file as is (XML format) to the content queue which stores the contents of a file.
 2.	For each publisher in the input file call the webservice publishers-ws to check if the publisher exists.
 3.	If the publishers does not exist, add the publisher using the same webservice.
-4.	The books will need to be converted in the respected CDM datamodels of the publishers-ws API.
+4.	The books will need to be converted in the respected CDM datamodels of the books-ws API.
 5.	For each book in the input file write the book as a JSON to the queue for separate books.
 
 3 – Check functionality
