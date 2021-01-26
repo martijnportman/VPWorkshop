@@ -1,4 +1,4 @@
-# VPWorkshop Mulesoft hands-on training – Use cases
+# Workshop Mulesoft hands-on training – Use cases
 
 Needed for the use cases:
 Input:
@@ -20,9 +20,10 @@ Input:
 -	postSingleBookRequest.raml
 -	postSinglePublisherRequest.raml
 
-On Cloudhub, environment VopakTraining:
-•	books-ws (http://books-ws.de-c1.cloudhub.io/api)
-•	publishers-ws (http://publishers-ws.de-c1.cloudhub.io/api)
+On Cloudhub, environment 
+Training:
+•	books-ws (http://books.de-c1.cloudhub.io/console/)
+•	publishers-ws (http://publishers.de-c1.cloudhub.io/console/)
 
 Pre req:
 Clone GIT repo for WorkShop
