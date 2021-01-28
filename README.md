@@ -40,7 +40,7 @@ Use case 1:
 Steps:
 1 – Create Anypoint MQ queues
 Create two queues, one queue to store the contents of input file and one queue to store separate books. All queues must also have an error queue. Use descriptive names for the queues.
-Use the Vopak naming convention in creating the queues.
+Use your companies naming convention in creating the queues.
 
 
 2 – Create service
@@ -90,7 +90,7 @@ Use case: 3: Advanced functionality
 -	For instance, should you scope the error handling to a flow or not
 -	Or do you think you need error handling on several level? Why?
 
-3- Add in track trace of messages. How will you approach this?
+3- Add in track and trace of messages. How will you approach this?
 
 
 Use case 4: Releasing APIs
